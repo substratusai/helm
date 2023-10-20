@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "text-generation-inference.fullname" . }}
+  labels:
+    {{- include "text-generation-inference.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "text-generation-inference.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "text-generation-inference.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.port }}
+              protocol: TCP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: MODEL_ID
+              value: {{ .Values.model | quote }}
+            {{- if index .Values.resources.limits "nvidia.com/gpu" }}
+            - name: NUM_SHARD
+              value: {{ index .Values.resources.limits "nvidia.com/gpu" | quote }}
+            {{- end }}
+            - name: PORT 
+              value: {{ .Values.port | quote }}
+            {{- if .Values.quantize }}
+            - name: QUANTIZE
+              value: {{ .Values.quantize | quote }}
+            {{- end }}
+            {{- with .Values.env }}
+            {{ toYaml . | nindent 12 }}
+            {{- end }}
+          volumeMounts:
+            - mountPath: /dev/shm
+              name: dshm
+      volumes:
+         - name: dshm
+           emptyDir:
+              medium: Memory
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
