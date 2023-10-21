@@ -11,15 +11,12 @@ generation for the most popular open-source LLMs.
 Basic usage:
 ```bash
 helm repo add substratusai https://substratusai.github.io/helm
-helm install mistral-7b-instruct substratusai/text-generation-inference
 # Note by default the resource limit is set to 1 GPU
 helm install mistral-7b-instruct substratusai/text-generation-inference \
   --set model=mistralai/Mistral-7B-Instruct-v0.1
 ```
 
-### Mistral 7B Instruct on GCP with 1 x L4 GPU
-Example for running Mistral 7b Instruct on GCP with L4 GPUs:
-
+### Mistral 7B Instruct on GCP targeting 1 x L4 GPU
 
 Create a file named `values.yaml` with following content:
 
