@@ -14,4 +14,16 @@ entries:
     urls:
     - https://github.com/substratusai/helm/releases/download/text-generation-inference-0.1.1/text-generation-inference-0.1.1.tgz
     version: 0.1.1
-generated: "2023-10-21T07:15:36.411830801Z"
+  vllm:
+  - apiVersion: v2
+    appVersion: v0.2.1.post1
+    created: "2023-10-24T06:03:24.806340104Z"
+    description: 'A Helm chart for deploying vLLM. vLLM is a fast and easy-to-use
+      library for LLM inference and serving. '
+    digest: 5e121ba504c2d0659c445a1d683dec3996eaa8e36807dd922db36ba36aecfbde
+    name: vllm
+    type: application
+    urls:
+    - https://github.com/substratusai/helm/releases/download/vllm-0.1.1/vllm-0.1.1.tgz
+    version: 0.1.1
+generated: "2023-10-24T06:03:24.806345104Z"
