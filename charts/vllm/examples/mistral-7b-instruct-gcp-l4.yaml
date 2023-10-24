@@ -1,0 +1,6 @@
+model: mistralai/Mistral-7B-Instruct-v0.1
+resources:
+  limits:
+    nvidia.com/gpu: 1
+nodeSelector:
+  cloud.google.com/gke-accelerator: nvidia-l4
