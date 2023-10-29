@@ -1,0 +1,6 @@
+model: all-MiniLM-L6-v2
+resources:
+  limits:
+    nvidia.com/gpu: 1
+nodeSelector:
+  cloud.google.com/gke-accelerator: nvidia-l4
