@@ -30,7 +30,7 @@ nodeSelector:
 
 Install using Helm:
 ```bash
-helm install mistral-7b-instruct substratusai/stapi \
+helm install stapi-gpu substratusai/stapi \
     -f values.yaml
 ```
 
