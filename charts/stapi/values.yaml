@@ -2,6 +2,9 @@ replicaCount: 1
 # Change this if you want to serve another model
 model: all-MiniLM-L6-v2
 
+
+deploymentAnnotations: {}
+
 # Override the resources if you need more
 resources:
   requests:
