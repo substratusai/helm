@@ -1,5 +1,17 @@
 apiVersion: v1
 entries:
+  stapi:
+  - apiVersion: v2
+    appVersion: v2.2.2-3
+    created: "2023-10-29T04:20:03.752762393Z"
+    description: 'A Helm chart for deploying STAPI, an OpenAI compatible Embedding
+      API using Sentence Transformers. '
+    digest: 0bd68d68c36ddf5272019255051c804b049c45227560dc407836b108b81fe2fb
+    name: stapi
+    type: application
+    urls:
+    - https://github.com/substratusai/helm/releases/download/stapi-0.1.1/stapi-0.1.1.tgz
+    version: 0.1.1
   text-generation-inference:
   - apiVersion: v2
     appVersion: 1.1.0
@@ -26,4 +38,4 @@ entries:
     urls:
     - https://github.com/substratusai/helm/releases/download/vllm-0.1.1/vllm-0.1.1.tgz
     version: 0.1.1
-generated: "2023-10-24T06:03:24.806345104Z"
+generated: "2023-10-29T04:20:03.752768594Z"
