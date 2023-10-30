@@ -2,6 +2,8 @@ replicaCount: 1
 # Change this if you want to serve another model
 model: mistralai/Mistral-7B-Instruct-v0.1
 
+deploymentAnnotations: {}
+
 # Override the resources if you need more
 resources:
   requests:
