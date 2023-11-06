@@ -3,6 +3,25 @@ entries:
   lingo:
   - apiVersion: v2
     appVersion: v0.0.3
+    created: "2023-11-06T06:51:40.299364545Z"
+    description: A Helm chart for Lingo, the K8s LLM proxy and autoscaler
+    digest: 8970c5ddd9c4eacee9e72044d9bffbc726207f94141c67deb28b0b52a04ecf8b
+    home: https://github.com/substratusai/lingo
+    keywords:
+    - llm
+    - proxy
+    - autoscaler
+    - openai
+    maintainers:
+    - name: Sam Stoelinga
+      url: https://www.linkedin.com/in/samstoelinga/
+    name: lingo
+    type: application
+    urls:
+    - https://github.com/substratusai/helm/releases/download/lingo-0.1.4/lingo-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: v0.0.3
     created: "2023-11-05T18:26:45.691610641Z"
     description: A Helm chart for Lingo, the K8s LLM proxy and autoscaler
     digest: 187ab22e8384fb80b0b618cd54bf29b8f66b0b1b290429f9a550490df03fedcf
@@ -129,4 +148,4 @@ entries:
     urls:
     - https://github.com/substratusai/helm/releases/download/vllm-0.1.1/vllm-0.1.1.tgz
     version: 0.1.1
-generated: "2023-11-05T18:26:45.69163141Z"
+generated: "2023-11-06T06:51:40.29986155Z"
