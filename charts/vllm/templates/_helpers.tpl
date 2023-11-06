@@ -51,12 +51,10 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
-Create the name of the service account to use
+Create the name of the ReadManyOnly persistent volume to use
 */}}
-{{- define "vllm.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "vllm.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
+{{- define "vllm.readManyPVCName" -}}
+{{- default (include "vllm.fullname" .) .Values.readManyPVC.name }}
 {{- end }}
-{{- end }}
+
+

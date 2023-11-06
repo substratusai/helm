@@ -1,0 +1,20 @@
+# This example requires first running
+# `kubectl apply -f load-model-job.yaml` to load the model into a PVC.
+model: /model
+
+replicaCount: 0
+
+env:
+- name: SERVED_MODEL_NAME
+  value: mistral-7b-instruct-v0.1
+
+deploymentAnnotations:
+  lingo.substratus.ai/models: mistral-7b-instruct-v0.1
+  lingo.substratus.ai/min-replicas: "0" # needs to be string
+  lingo.substratus.ai/max-replicas: "3" # needs to be string 
+
+readManyPVC:
+  enabled: true
+  sourcePVC: "mistral-7b-instruct"
+  mountPath: /model
+  size: 20Gi

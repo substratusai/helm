@@ -2,6 +2,18 @@ replicaCount: 1
 # Change this if you want to serve another model
 model: mistralai/Mistral-7B-Instruct-v0.1
 
+# this only works on GKE today
+readManyPVC:
+  enabled: false
+  # provide the name of the PVC that has the model
+  sourcePVC: ""
+  accessModes:
+  - ReadOnlyMany
+  mountPath: /model
+  size: 30Gi
+  # storageClass needs to match the sourcePVC storageClass
+  storageClass: ""
+
 deploymentAnnotations: {}
 
 # Override the resources if you need more

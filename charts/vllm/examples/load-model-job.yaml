@@ -1,0 +1,43 @@
+# a K8s job that loads a model from HuggingFace into a PVC
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mistral-7b-instruct
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-model-job
+spec:
+  template:
+    spec:
+      volumes:
+        - name: model
+          persistentVolumeClaim:
+            claimName: mistral-7b-instruct
+      containers:
+      - name: model-loader
+        image: python:3.11
+        volumeMounts:
+        - mountPath: /model
+          name: model
+        command:
+        - /bin/bash
+        - -c
+        - |
+          pip install huggingface_hub
+          python3 - << EOF
+          from huggingface_hub import snapshot_download
+          model_id="mistralai/Mistral-7B-Instruct-v0.1"
+          snapshot_download(repo_id=model_id, local_dir="/model",
+                            local_dir_use_symlinks=False, revision="main",
+                            ignore_patterns=["*.safetensors", "model.safetensors.index.json"])
+          EOF
+      restartPolicy: Never
