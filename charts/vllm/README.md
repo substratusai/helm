@@ -32,6 +32,23 @@ helm install mistral-7b-instruct substratusai/vllm \
     -f values.yaml
 ```
 
+### Mistral 7B instruct quantized using awq
+
+Create a file named `values.yaml` with following content:
+[embedmd]:# (examples/mistral-7b-awq-values.yaml)
+```yaml
+model: TheBloke/Mistral-7B-Instruct-v0.1-AWQ
+quantization: awq
+dtype: half
+maxModelLen: 4096
+```
+
+Install using Helm:
+```bash
+helm install mistral-7b-instruct-awq substratusai/vllm \
+    -f values.yaml
+```
+
 ## Default Values
 
 Take a look at the default `values.yaml`:
@@ -41,6 +58,23 @@ Take a look at the default `values.yaml`:
 replicaCount: 1
 # Change this if you want to serve another model
 model: mistralai/Mistral-7B-Instruct-v0.1
+quantization: "" # optional, choose awq or squeezellm
+dtype: "" # optional, only required to be set to half when using awq for quantization
+gpuMemoryUtilization: "" # Optional, default is 0.90
+
+# this only works on GKE today
+readManyPVC:
+  enabled: false
+  # provide the name of the PVC that has the model
+  sourcePVC: ""
+  accessModes:
+  - ReadOnlyMany
+  mountPath: /model
+  size: 30Gi
+  # storageClass needs to match the sourcePVC storageClass
+  storageClass: ""
+
+deploymentAnnotations: {}
 
 # Override the resources if you need more
 resources:

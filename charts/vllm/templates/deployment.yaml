@@ -51,6 +51,22 @@ spec:
               value: {{ .Values.model | quote }}
             - name: PORT 
               value: {{ .Values.port | quote }}
+            {{- if .Values.quantization }}
+            - name: QUANTIZATION
+              value: {{ .Values.quantization | quote }}
+            {{- end }}
+            {{- if .Values.dtype }}
+            - name: DTYPE
+              value: {{ .Values.dtype | quote }}
+            {{- end }}
+            {{- if .Values.gpuMemoryUtilization }}
+            - name: GPU_MEMORY_UTILIZATION
+              value: {{ .Values.gpuMemoryUtilization | quote }}
+            {{- end }}
+            {{- if .Values.maxModelLen }}
+            - name: MAX_MODEL_LEN
+              value: {{ .Values.maxModelLen | quote }}
+            {{- end }}
             {{- with .Values.env }}
             {{ toYaml . | nindent 12 }}
             {{- end }}
