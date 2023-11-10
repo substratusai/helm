@@ -1,0 +1,4 @@
+model: TheBloke/Mistral-7B-Instruct-v0.1-AWQ
+quantization: awq
+dtype: half
+maxModelLen: 4096
