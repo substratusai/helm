@@ -1,6 +1,7 @@
 # Default values for lingo.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+concurrency: 100
 
 image:
   repository: ghcr.io/substratusai/lingo
