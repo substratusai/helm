@@ -36,7 +36,7 @@ spec:
           python3 - << EOF
           from huggingface_hub import snapshot_download
           model_id="mistralai/Mistral-7B-Instruct-v0.1"
-          snapshot_download(repo_id=model_id, local_dir="/model",
+          snapshot_download(repo_id=model_id, local_dir="/model", cache_dir="/model",
                             local_dir_use_symlinks=False, revision="main",
                             ignore_patterns=["*.safetensors", "model.safetensors.index.json"])
           EOF
