@@ -11,7 +11,7 @@ env:
 deploymentAnnotations:
   lingo.substratus.ai/models: mistral-7b-instruct-v0.1
   lingo.substratus.ai/min-replicas: "0" # needs to be string
-  lingo.substratus.ai/max-replicas: "3" # needs to be string 
+  lingo.substratus.ai/max-replicas: "3" # needs to be string
 
 readManyPVC:
   enabled: true
@@ -19,8 +19,11 @@ readManyPVC:
   mountPath: /model
   size: 20Gi
 
+nodeSelector:
+  cloud.google.com/gke-accelerator: nvidia-l4
+
 resources:
   requests:
-    cpu: 2
+    cpu: 7
     memory: 24Gi
     ephemeral-storage: 10Gi
