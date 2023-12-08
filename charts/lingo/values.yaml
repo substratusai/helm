@@ -3,6 +3,9 @@
 # Declare variables to be passed into your templates.
 concurrency: 100
 
+# The number of seconds to wait before scaling down a deployment
+scaleDownDelay: 30
+
 image:
   repository: ghcr.io/substratusai/lingo
   pullPolicy: IfNotPresent
