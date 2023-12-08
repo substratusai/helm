@@ -10,7 +10,6 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 
-
 rules:
 - apiGroups:
   - apps
@@ -23,4 +22,19 @@ rules:
   resources:
   - endpointslices
   verbs: ["get", "list", "watch"]
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs: ["create", "patch"]
 {{- end }}
