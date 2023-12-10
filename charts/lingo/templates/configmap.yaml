@@ -4,6 +4,6 @@ metadata:
   name: {{ include "lingo.fullname" . }}
   labels:
     {{- include "lingo.labels" . | nindent 4 }}
-spec:
+data:
   CONCURRENCY: {{ .Values.concurrency | quote }}
   SCALE_DOWN_DELAY: {{ .Values.scaleDownDelay | quote }}
