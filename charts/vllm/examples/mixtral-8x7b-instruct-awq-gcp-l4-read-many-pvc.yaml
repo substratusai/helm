@@ -1,0 +1,26 @@
+model: /model
+servedModelName: mixtral-8x7b-instruct-awq
+readManyPVC:
+  enabled: true
+  sourcePVC: "mixtral-8x7b-instruct-awq"
+  mountPath: /model
+  size: 30Gi
+
+quantization: awq
+dtype: half
+maxModelLen: 8192
+replicaCount: 0
+
+resources:
+  limits:
+    nvidia.com/gpu: 2
+
+nodeSelector:
+  cloud.google.com/gke-accelerator: nvidia-l4
+
+replicaCount: 0
+
+deploymentAnnotations:
+  lingo.substratus.ai/models: mixtral-8x7b-instruct-awq
+  lingo.substratus.ai/min-replicas: "0" # needs to be string
+  lingo.substratus.ai/max-replicas: "3" # needs to be string 

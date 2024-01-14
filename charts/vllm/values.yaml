@@ -1,6 +1,7 @@
 replicaCount: 1
 # Change this if you want to serve another model
 model: mistralai/Mistral-7B-Instruct-v0.1
+servedModelName: "" # optional, defaults to model name
 quantization: "" # optional, choose awq or squeezellm
 dtype: "" # optional, only required to be set to half when using awq for quantization
 gpuMemoryUtilization: "" # Optional, default is 0.90
