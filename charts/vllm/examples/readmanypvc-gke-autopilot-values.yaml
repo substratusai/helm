@@ -1,5 +1,5 @@
 # This example requires first running
-# `kubectl apply -f load-model-job.yaml` to load the model into a PVC.
+# `kubectl apply -f load-model-job-mistral-7b-instruct.yaml` to load the model into a PVC.
 model: /model
 
 replicaCount: 0
