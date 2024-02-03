@@ -38,7 +38,7 @@ nodeSelector: {}
 #  E.g. for GCP L4 cloud.google.com/gke-accelerator: nvidia-l4
 
 image:
-  repository: ghcr.io/substratusai/vllm
+  repository: substratusai/vllm
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
