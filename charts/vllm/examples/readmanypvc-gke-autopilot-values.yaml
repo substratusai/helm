@@ -1,12 +1,9 @@
 # This example requires first running
-# `kubectl apply -f load-model-job.yaml` to load the model into a PVC.
+# `kubectl apply -f load-model-job-mistral-7b-instruct.yaml` to load the model into a PVC.
 model: /model
+servedModelName: mistral-7b-instruct-v0.1
 
 replicaCount: 0
-
-env:
-- name: SERVED_MODEL_NAME
-  value: mistral-7b-instruct-v0.1
 
 deploymentAnnotations:
   lingo.substratus.ai/models: mistral-7b-instruct-v0.1

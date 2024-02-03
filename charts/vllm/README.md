@@ -35,7 +35,7 @@ helm install mistral-7b-instruct substratusai/vllm \
 ### Mistral 7B Instruct on GKE Autopilot with ReadManyOnly PVC to store model
 Create a K8s Job to load the model into a PVC:
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/substratusai/helm/main/charts/vllm/examples/load-model-job.yaml
+kubectl apply -f https://raw.githubusercontent.com/substratusai/helm/main/charts/vllm/examples/load-model-job-mistral-7b-instruct.yaml
 ```
 
 Create a file named `values.yaml` with following content:
@@ -43,7 +43,7 @@ Create a file named `values.yaml` with following content:
 [embedmd]:# (examples/readmanypvc-gke-autopilot-values.yaml)
 ```yaml
 # This example requires first running
-# `kubectl apply -f load-model-job.yaml` to load the model into a PVC.
+# `kubectl apply -f load-model-job-mistral-7b-instruct.yaml` to load the model into a PVC.
 model: /model
 
 replicaCount: 0

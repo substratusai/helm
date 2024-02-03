@@ -6,6 +6,6 @@ description: |
 
 type: application
 
-version: 0.1.5
+version: 0.1.6
 
-appVersion: "v0.2.1.post1-3"
+appVersion: "v0.2.7-docker1"

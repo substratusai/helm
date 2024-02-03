@@ -1,0 +1,10 @@
+model: TheBloke/mixtral-8x7b-v0.1-AWQ
+quantization: awq
+dtype: half
+maxModelLen: 8192
+replicaCount: 1
+resources:
+  limits:
+    nvidia.com/gpu: 2
+nodeSelector:
+  cloud.google.com/gke-accelerator: nvidia-l4

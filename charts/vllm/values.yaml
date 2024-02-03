@@ -1,6 +1,7 @@
 replicaCount: 1
 # Change this if you want to serve another model
 model: mistralai/Mistral-7B-Instruct-v0.1
+servedModelName: "" # optional, defaults to model name
 quantization: "" # optional, choose awq or squeezellm
 dtype: "" # optional, only required to be set to half when using awq for quantization
 gpuMemoryUtilization: "" # Optional, default is 0.90
@@ -37,7 +38,7 @@ nodeSelector: {}
 #  E.g. for GCP L4 cloud.google.com/gke-accelerator: nvidia-l4
 
 image:
-  repository: ghcr.io/substratusai/vllm
+  repository: substratusai/vllm
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""

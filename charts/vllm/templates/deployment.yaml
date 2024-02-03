@@ -47,10 +47,14 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            - name: MODEL
-              value: {{ .Values.model | quote }}
             - name: PORT 
               value: {{ .Values.port | quote }}
+            - name: MODEL
+              value: {{ .Values.model | quote }}
+            {{- if .Values.servedModelName }}
+            - name: SERVED_MODEL_NAME
+              value: {{ .Values.servedModelName | quote }}
+            {{- end }}
             {{- if .Values.quantization }}
             - name: QUANTIZATION
               value: {{ .Values.quantization | quote }}
