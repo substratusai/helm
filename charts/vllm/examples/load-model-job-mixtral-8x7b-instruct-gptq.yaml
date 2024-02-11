@@ -1,0 +1,43 @@
+# a K8s job that loads a model from HuggingFace into a PVC
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mixtral-8x7b-instruct-gptq
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 30Gi
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-model-job-mixtral-8x7b-instruct-gptq
+spec:
+  template:
+    spec:
+      volumes:
+        - name: model
+          persistentVolumeClaim:
+            claimName: mixtral-8x7b-instruct-gptq
+      containers:
+      - name: model-loader
+        image: python:3.11
+        volumeMounts:
+        - mountPath: /model
+          name: model
+        command:
+        - /bin/bash
+        - -c
+        - |
+          pip install huggingface_hub
+          python3 - << EOF
+          from huggingface_hub import snapshot_download
+          model_id="TheBloke/Mixtral-8x7B-Instruct-v0.1-GPTQ"
+          snapshot_download(repo_id=model_id, local_dir="/model", cache_dir="/model",
+                            local_dir_use_symlinks=False,
+                            revision="gptq-4bit-32g-actorder_True")
+          EOF
+      restartPolicy: Never
