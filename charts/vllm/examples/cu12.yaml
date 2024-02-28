@@ -1,0 +1,19 @@
+model: TheBloke/Mistral-7B-Instruct-v0.1-AWQ
+quantization: awq
+dtype: half
+maxModelLen: 4096
+
+resources:
+  requests:
+    cpu: 500m
+    memory: "2048Mi"
+  limits:
+    nvidia.com/gpu: 1
+
+
+image:
+  repository: tsdocode/vllm-docker
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "cuda12.0.0"
+
