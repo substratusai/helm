@@ -79,16 +79,16 @@ spec:
               name: dshm
             {{- if .Values.readManyPVC.enabled }}
             - mountPath: {{ .Values.readManyPVC.mountPath }}
-              name: {{ include "vllm.readManyPVCName" . }}
+              name: {{ .Values.readManyPVC.sourcePVC }}
             {{- end }}
       volumes:
          - name: dshm
            emptyDir:
               medium: Memory
          {{- if .Values.readManyPVC.enabled }}
-         - name: {{ include "vllm.readManyPVCName" . }}
+         - name: {{ .Values.readManyPVC.sourcePVC  }}
            persistentVolumeClaim:
-             claimName: {{ include "vllm.readManyPVCName" . }}
+             claimName: {{ .Values.readManyPVC.sourcePVC  }}
              readOnly: true
          {{- end }}
       {{- with .Values.nodeSelector }}
