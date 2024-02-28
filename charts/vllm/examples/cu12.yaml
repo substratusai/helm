@@ -8,7 +8,7 @@ resources:
     cpu: 500m
     memory: "2048Mi"
   limits:
-    nvidia.com/gpu: 1
+    nvidia.com/gpu: 2
 
 
 image:
