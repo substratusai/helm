@@ -57,4 +57,9 @@ Create the name of the ReadManyOnly persistent volume to use
 {{- default (include "vllm.fullname" .) .Values.readManyPVC.name }}
 {{- end }}
 
-
+{{/*
+The model name used for serving in vLLM. Use model or servedModelName
+*/}}
+{{- define "vllm.usedModelName" -}}
+{{- default .Values.model .Values.servedModelName }}
+{{- end }}
