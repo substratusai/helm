@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "lingo.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       {{- include "lingo.selectorLabels" . | nindent 6 }}
