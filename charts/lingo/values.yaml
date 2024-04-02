@@ -8,6 +8,8 @@ scaleDownDelay: 30
 
 replicaCount: 1
 
+env: []
+
 image:
   repository: ghcr.io/substratusai/lingo
   pullPolicy: IfNotPresent
