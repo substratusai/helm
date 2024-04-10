@@ -52,9 +52,14 @@ spec:
             # Allow for up to 10 minutes of startup time
             failureThreshold: 100
           readinessProbe:
-            httpGet:
-              path: /docs
-              port: {{ .Values.port }}
+            exec:
+              command:
+              - sh
+              - -c
+              - |
+                curl -X POST "http://localhost:{{ .Values.port }}/v1/completions" \
+                  --fail-with-body --max-time 5 -H "Content-Type: application/json" \
+                  -d '{"prompt": "Hi there", "max_tokens": 5, "model": "{{ include "vllm.usedModelName" . }}"}'
             initialDelaySeconds: 10
             periodSeconds: 5
           resources:
