@@ -261,6 +261,17 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: v0.4.0.post1
+    created: "2024-04-20T03:42:23.026902535Z"
+    description: 'A Helm chart for deploying vLLM. vLLM is a fast and easy-to-use
+      library for LLM inference and serving. '
+    digest: b94c5b95e620d863dfae309217f8388a9df4153eba07fdde9fc860418ea0c51b
+    name: vllm
+    type: application
+    urls:
+    - https://github.com/substratusai/helm/releases/download/vllm-0.4.0-post1b/vllm-0.4.0-post1b.tgz
+    version: 0.4.0-post1b
+  - apiVersion: v2
+    appVersion: v0.4.0.post1
     created: "2024-04-14T05:44:51.252651141Z"
     description: 'A Helm chart for deploying vLLM. vLLM is a fast and easy-to-use
       library for LLM inference and serving. '
@@ -380,4 +391,4 @@ entries:
     urls:
     - https://github.com/substratusai/helm/releases/download/vllm-0.1.1/vllm-0.1.1.tgz
     version: 0.1.1
-generated: "2024-04-17T23:25:58.769823388Z"
+generated: "2024-04-20T03:42:23.027219111Z"
