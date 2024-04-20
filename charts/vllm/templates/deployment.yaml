@@ -9,7 +9,9 @@ metadata:
   labels:
     {{- include "vllm.labels" . | nindent 4 }}
 spec:
+  {{- if ne (int .Values.replicaCount) 1 }}
   replicas: {{ .Values.replicaCount }}
+  {{- end }}
   selector:
     matchLabels:
       {{- include "vllm.selectorLabels" . | nindent 6 }}
