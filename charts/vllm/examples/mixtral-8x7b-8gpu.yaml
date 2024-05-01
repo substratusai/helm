@@ -4,3 +4,6 @@ replicaCount: 1
 resources:
   limits:
     nvidia.com/gpu: 8
+env:
+- name: HF_TOKEN
+  value: REPLACE_ME
