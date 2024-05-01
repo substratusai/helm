@@ -1,0 +1,6 @@
+model: mistralai/Mixtral-8x7B-Instruct-v0.1
+maxModelLen: 32768
+replicaCount: 1
+resources:
+  limits:
+    nvidia.com/gpu: 8
