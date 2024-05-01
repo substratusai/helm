@@ -6,6 +6,15 @@ description: |
 
 type: application
 
-version: 0.4.1
+keywords: ["LLM", "vLLM", "AI"]
 
-appVersion: "v0.4.1"
+home: https://substratus.ai
+
+maintainers:
+- name: samos123
+  email: sammiestoel@gmail.com
+  url: https://www.linkedin.com/in/samstoelinga/
+
+version: 0.4.2
+
+appVersion: "v0.4.1-docker1"
