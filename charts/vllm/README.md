@@ -7,9 +7,9 @@ vLLM is a fast and easy-to-use library for LLM inference and serving.
 Basic usage:
 ```bash
 helm repo add substratusai https://substratusai.github.io/helm
-# Note by default the resource limit is set to 1 GPU
 helm install mistral-7b-instruct substratusai/vllm \
-  --set model=mistralai/Mistral-7B-Instruct-v0.1
+  --set model=mistralai/Mistral-7B-Instruct-v0.1 \
+  --set resources.limits."nvidia\.com/gpu"=1
 ```
 
 ### Mistral 7B Instruct on GCP targeting 1 x L4 GPU
