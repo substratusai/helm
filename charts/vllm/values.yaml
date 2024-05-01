@@ -29,9 +29,6 @@ resources:
   requests:
     cpu: 500m
     memory: "512Mi"
-  limits:
-    nvidia.com/gpu: 1
-
 
 # Override env variables
 env: {}
