@@ -17,3 +17,12 @@ version: 0.4.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "v0.4.0"
+
+keywords: ["LLM", "Weaviate", "Vector Search", "RAG", "Retrieval-Augmented Generation"]
+
+home: https://substratus.ai
+
+maintainers:
+- name: samos123
+  email: sammiestoel@gmail.com
+  url: https://www.linkedin.com/in/samstoelinga/
