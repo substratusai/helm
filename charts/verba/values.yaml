@@ -1,5 +1,10 @@
 replicaCount: 1
 
+# Add environment variables to verba container
+env: []
+# - name: EXAMPLE_ENV_VAR
+#   value: example-value
+
 image:
   repository: substratusai/verba
   pullPolicy: IfNotPresent
