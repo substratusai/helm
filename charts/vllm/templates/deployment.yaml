@@ -91,6 +91,10 @@ spec:
             - name: MAX_MODEL_LEN
               value: {{ .Values.maxModelLen | quote }}
             {{- end }}
+            {{- if .Values.chatTemplate }}
+            - name: CHAT_TEMPLATE
+              value: {{ .Values.chatTemplate | quote }}
+            {{- end }}
             {{- with .Values.env }}
             {{ toYaml . | nindent 12 }}
             {{- end }}

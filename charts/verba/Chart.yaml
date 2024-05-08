@@ -1,0 +1,28 @@
+apiVersion: v2
+name: verba
+description: A Helm chart for Weaviate Verba, The Golden RAGtriever, an open-source application designed to offer an end-to-end, streamlined, and user-friendly interface for Retrieval-Augmented Generation (RAG) out of the box. In just a few easy steps, explore your datasets and extract insights with ease, either locally or through LLM providers such as OpenAI, Cohere, and HuggingFace.
+
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.4.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: "v0.4.0-baseURL2"
+
+keywords: ["LLM", "Weaviate", "Vector Search", "RAG", "Retrieval-Augmented Generation"]
+
+home: https://substratus.ai
+
+maintainers:
+- name: samos123
+  email: sammiestoel@gmail.com
+  url: https://www.linkedin.com/in/samstoelinga/
