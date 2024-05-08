@@ -45,12 +45,9 @@ Create a file named `values.yaml` with following content:
 # This example requires first running
 # `kubectl apply -f load-model-job-mistral-7b-instruct.yaml` to load the model into a PVC.
 model: /model
+servedModelName: mistral-7b-instruct-v0.1
 
 replicaCount: 0
-
-env:
-- name: SERVED_MODEL_NAME
-  value: mistral-7b-instruct-v0.1
 
 deploymentAnnotations:
   lingo.substratus.ai/models: mistral-7b-instruct-v0.1
@@ -71,6 +68,8 @@ resources:
     cpu: 7
     memory: 24Gi
     ephemeral-storage: 10Gi
+  limits:
+    nvidia.com/gpu: 1
 ```
 
 Install using Helm:
@@ -88,6 +87,9 @@ model: TheBloke/Mistral-7B-Instruct-v0.1-AWQ
 quantization: awq
 dtype: half
 maxModelLen: 4096
+resources:
+  limits:
+    nvidia.com/gpu: 1
 ```
 
 Install using Helm:
@@ -105,9 +107,14 @@ Take a look at the default `values.yaml`:
 replicaCount: 1
 # Change this if you want to serve another model
 model: mistralai/Mistral-7B-Instruct-v0.1
-quantization: "" # optional, choose awq or squeezellm
-dtype: "" # optional, only required to be set to half when using awq for quantization
-gpuMemoryUtilization: "" # Optional, default is 0.90
+# optional, defaults to model name
+servedModelName: ""
+# optional, choose awq or squeezellm
+quantization: ""
+# optional, only required to be set to half when using quantization
+dtype: ""
+# Optional, default is 0.90
+gpuMemoryUtilization: ""
 
 # this only works on GKE today
 readManyPVC:
@@ -128,9 +135,6 @@ resources:
   requests:
     cpu: 500m
     memory: "512Mi"
-  limits:
-    nvidia.com/gpu: 1
-
 
 # Override env variables
 env: {}
@@ -141,7 +145,7 @@ nodeSelector: {}
 #  E.g. for GCP L4 cloud.google.com/gke-accelerator: nvidia-l4
 
 image:
-  repository: ghcr.io/substratusai/vllm
+  repository: substratusai/vllm
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
