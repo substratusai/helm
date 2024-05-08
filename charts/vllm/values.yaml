@@ -7,8 +7,15 @@ servedModelName: ""
 quantization: ""
 # optional, only required to be set to half when using quantization
 dtype: ""
-# Optional, default is 0.90
+# optional, default is 0.90
 gpuMemoryUtilization: ""
+
+# optional, the maximum context length to use for the model
+maxModelLen: ""
+
+# optional, the chat template to use with OpenAI chat completion API
+# example value would be "/chat-templates/mistral.jinja"
+chatTemplate: ""
 
 # this only works on GKE today
 readManyPVC:
