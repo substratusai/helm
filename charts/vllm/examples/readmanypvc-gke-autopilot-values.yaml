@@ -24,3 +24,5 @@ resources:
     cpu: 7
     memory: 24Gi
     ephemeral-storage: 10Gi
+  limits:
+    nvidia.com/gpu: 1
