@@ -247,7 +247,53 @@ entries:
     urls:
     - https://github.com/substratusai/helm/releases/download/text-generation-inference-0.1.1/text-generation-inference-0.1.1.tgz
     version: 0.1.1
+  verba:
+  - apiVersion: v2
+    appVersion: v0.4.0-baseURL2
+    created: "2024-05-08T05:43:54.944624921Z"
+    description: A Helm chart for Weaviate Verba, The Golden RAGtriever, an open-source
+      application designed to offer an end-to-end, streamlined, and user-friendly
+      interface for Retrieval-Augmented Generation (RAG) out of the box. In just a
+      few easy steps, explore your datasets and extract insights with ease, either
+      locally or through LLM providers such as OpenAI, Cohere, and HuggingFace.
+    digest: d21e942756812803db8215b7898c0b09f88386ad439f7e6ef031d83d0a7e5ed0
+    home: https://substratus.ai
+    keywords:
+    - LLM
+    - Weaviate
+    - Vector Search
+    - RAG
+    - Retrieval-Augmented Generation
+    maintainers:
+    - email: sammiestoel@gmail.com
+      name: samos123
+      url: https://www.linkedin.com/in/samstoelinga/
+    name: verba
+    type: application
+    urls:
+    - https://github.com/substratusai/helm/releases/download/verba-0.4.0/verba-0.4.0.tgz
+    version: 0.4.0
   vllm:
+  - apiVersion: v2
+    appVersion: v0.4.2
+    created: "2024-05-08T05:43:55.153719826Z"
+    description: 'A Helm chart for deploying vLLM. vLLM is a fast and easy-to-use
+      library for LLM inference and serving. '
+    digest: 26e7461fa0d9410ddc2e0b4b853d07a6f24b979a550f97a2b776082b1bdf7b02
+    home: https://substratus.ai
+    keywords:
+    - LLM
+    - vLLM
+    - AI
+    maintainers:
+    - email: sammiestoel@gmail.com
+      name: samos123
+      url: https://www.linkedin.com/in/samstoelinga/
+    name: vllm
+    type: application
+    urls:
+    - https://github.com/substratusai/helm/releases/download/vllm-0.4.3/vllm-0.4.3.tgz
+    version: 0.4.3
   - apiVersion: v2
     appVersion: v0.4.1-docker1
     created: "2024-05-01T19:53:45.826978892Z"
@@ -422,4 +468,4 @@ entries:
     urls:
     - https://github.com/substratusai/helm/releases/download/vllm-0.1.1/vllm-0.1.1.tgz
     version: 0.1.1
-generated: "2024-05-01T19:53:45.827180489Z"
+generated: "2024-05-08T05:43:55.153883682Z"
