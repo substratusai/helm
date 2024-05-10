@@ -1,0 +1,19 @@
+model: MaziyarPanahi/Meta-Llama-3-70B-Instruct-GPTQ
+servedModelName: llama-3-70b-instruct-gptq
+quantization: gptq
+dtype: auto
+gpuMemoryUtilization: "0.99"
+maxModelLen: 8192
+env:
+- name: EXTRA_ARGS
+  value: "--enforce-eager --kv-cache-dtype=fp8"
+
+# Tested on 2 x NVIDIA L4 24 GB GPUs
+resources:
+  limits:
+    nvidia.com/gpu: 2
+
+deploymentAnnotations:
+  lingo.substratus.ai/models: llama-3-70b-instruct-gptq
+  lingo.substratus.ai/min-replicas: "0" # needs to be string
+  lingo.substratus.ai/max-replicas: "3" # needs to be string
