@@ -15,6 +15,6 @@ maintainers:
   email: sammiestoel@gmail.com
   url: https://www.linkedin.com/in/samstoelinga/
 
-version: 0.4.3
+version: 0.4.4
 
-appVersion: "v0.4.2"
+appVersion: "v0.4.2-docker1"

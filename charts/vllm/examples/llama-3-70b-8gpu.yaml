@@ -1,0 +1,8 @@
+model: meta-llama/Meta-Llama-3-70B-Instruct
+replicaCount: 1
+resources:
+  limits:
+    nvidia.com/gpu: 8
+env:
+- name: HF_TOKEN
+  value: ${HF_TOKEN}
