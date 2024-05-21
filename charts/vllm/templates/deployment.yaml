@@ -105,17 +105,23 @@ spec:
             - mountPath: {{ .Values.readManyPVC.mountPath }}
               name: {{ include "vllm.readManyPVCName" . }}
             {{- end }}
+          {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
       volumes:
-         - name: dshm
-           emptyDir:
-              medium: Memory
-         {{- if .Values.readManyPVC.enabled }}
-         - name: {{ include "vllm.readManyPVCName" . }}
-           persistentVolumeClaim:
-             claimName: {{ include "vllm.readManyPVCName" . }}
-             readOnly: true
-         {{- end }}
-      {{- with .Values.nodeSelector }}
+        - name: dshm
+          emptyDir:
+             medium: Memory
+        {{- if .Values.readManyPVC.enabled }}
+        - name: {{ include "vllm.readManyPVCName" . }}
+          persistentVolumeClaim:
+            claimName: {{ include "vllm.readManyPVCName" . }}
+            readOnly: true
+        {{- end }}
+        {{- with .Values.volumes }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}

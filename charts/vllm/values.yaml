@@ -23,7 +23,7 @@ readManyPVC:
   # provide the name of the PVC that has the model
   sourcePVC: ""
   accessModes:
-  - ReadOnlyMany
+    - ReadOnlyMany
   mountPath: /model
   size: 30Gi
   # storageClass needs to match the sourcePVC storageClass
@@ -68,7 +68,8 @@ service:
 ingress:
   enabled: false
   className: ""
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -84,3 +85,14 @@ ingress:
 tolerations: []
 
 affinity: {}
+
+volumes: []
+#volumes:
+#  - name: model
+#    hostPath:
+#      path: /model
+
+volumeMounts: []
+#volumeMounts:
+#  - name: model
+#    mountPath: /model
