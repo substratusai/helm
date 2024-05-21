@@ -119,7 +119,7 @@ spec:
             readOnly: true
         {{- end }}
         {{- with .Values.volumes }}
-          {{- toYaml . | nindent 8 }}
+          {{- toYaml . | nindent 10 }}
         {{- end }}
         {{- with .Values.nodeSelector }}
       nodeSelector:
