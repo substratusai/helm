@@ -84,3 +84,12 @@ ingress:
 tolerations: []
 
 affinity: {}
+
+# volumes:
+#   - name: model
+#     hostPath:
+#       path: /model
+
+# volumeMounts:
+#   - name: model
+#     mountPath: /model
