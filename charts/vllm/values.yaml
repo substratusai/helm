@@ -93,3 +93,5 @@ affinity: {}
 # volumeMounts:
 #   - name: model
 #     mountPath: /model
+
+runtimeClassName: null
