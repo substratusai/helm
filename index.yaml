@@ -276,6 +276,26 @@ entries:
   vllm:
   - apiVersion: v2
     appVersion: v0.4.2-docker1
+    created: "2024-05-22T20:02:38.230146744Z"
+    description: 'A Helm chart for deploying vLLM. vLLM is a fast and easy-to-use
+      library for LLM inference and serving. '
+    digest: a00699aee3d9154f1a91054f36538b080f5a307fb3d218b653cf0b319b3d1900
+    home: https://substratus.ai
+    keywords:
+    - LLM
+    - vLLM
+    - AI
+    maintainers:
+    - email: sammiestoel@gmail.com
+      name: samos123
+      url: https://www.linkedin.com/in/samstoelinga/
+    name: vllm
+    type: application
+    urls:
+    - https://github.com/substratusai/helm/releases/download/vllm-0.4.7/vllm-0.4.7.tgz
+    version: 0.4.7
+  - apiVersion: v2
+    appVersion: v0.4.2-docker1
     created: "2024-05-21T03:14:11.894501722Z"
     description: 'A Helm chart for deploying vLLM. vLLM is a fast and easy-to-use
       library for LLM inference and serving. '
@@ -528,4 +548,4 @@ entries:
     urls:
     - https://github.com/substratusai/helm/releases/download/vllm-0.1.1/vllm-0.1.1.tgz
     version: 0.1.1
-generated: "2024-05-21T03:14:11.89468319Z"
+generated: "2024-05-22T20:02:38.230589671Z"
