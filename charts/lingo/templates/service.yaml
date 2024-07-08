@@ -15,5 +15,11 @@ spec:
       targetPort: 8080
       protocol: TCP
       name: http
+    - name: metrics
+      protocol: TCP
+      port: 8082
+    - name: stats
+      protocol: TCP
+      port: 8083
   selector:
     {{- include "lingo.selectorLabels" . | nindent 4 }}
