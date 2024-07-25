@@ -50,7 +50,7 @@ spec:
               - -c
               - |
                 curl -X POST "http://localhost:{{ .Values.port }}/v1/completions" \
-                  --fail-with-body --max-time 5 -H "Content-Type: application/json" \
+                  --fail --max-time 5 -H "Content-Type: application/json" \
                   -d '{"prompt": "Hi there", "max_tokens": 5, "model": "{{ include "vllm.usedModelName" . }}"}'
             initialDelaySeconds: 20
             periodSeconds: 6
@@ -63,7 +63,7 @@ spec:
               - -c
               - |
                 curl -X POST "http://localhost:{{ .Values.port }}/v1/completions" \
-                  --fail-with-body --max-time 5 -H "Content-Type: application/json" \
+                  --fail --max-time 5 -H "Content-Type: application/json" \
                   -d '{"prompt": "Hi there", "max_tokens": 5, "model": "{{ include "vllm.usedModelName" . }}"}'
             periodSeconds: 10
             failureThreshold: 3
