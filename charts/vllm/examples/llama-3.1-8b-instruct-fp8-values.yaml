@@ -1,0 +1,12 @@
+model: neuralmagic/Meta-Llama-3.1-8B-Instruct-FP8
+gpuMemoryUtilization: "0.90"
+maxModelLen: 16384
+image:
+  tag: v0.5.3.post1
+env:
+- name: EXTRA_ARGS
+  value: --kv-cache-dtype=auto --enable-prefix-caching --max-num-batched-tokens=16384
+resources:
+  limits:
+    nvidia.com/gpu: "1"
+
