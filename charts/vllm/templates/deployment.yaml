@@ -54,8 +54,8 @@ spec:
                   -d '{"prompt": "Hi there", "max_tokens": 5, "model": "{{ include "vllm.usedModelName" . }}"}'
             initialDelaySeconds: 20
             periodSeconds: 6
-            # Allow for up to 10 minutes of startup time
-            failureThreshold: 100
+            # Allow for up to 20 minutes of startup time
+            failureThreshold: 200
           livenessProbe:
             exec:
               command:
